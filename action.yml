@@ -1,0 +1,14 @@
+name: 'docker arch'
+description: 'converts between docker weird arch names and saner names'
+inputs:
+  docker_arch:
+    required: true
+    description: 'docker-style arch, like linux/amd64'
+outputs:
+  arch:
+    description: 'saner arch, like amd64'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.docker_arch }}
